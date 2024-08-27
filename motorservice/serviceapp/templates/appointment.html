@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Appointment - On-Site Auto</title>
+    <!-- Box Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <!-- Link To CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        .appointment-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .appointment-container {
+            background-color: var(--bg-color);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        .appointment-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: red;
+        }
+        .appointment-form input,
+        .appointment-form select,
+        .appointment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid var(--text-color);
+            border-radius: 5px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        .appointment-form .btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: red;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .appointment-form .btn:hover {
+            background-color:black;
+        }
+        .location-options {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <a href="#" class="logo">On-Site Auto</a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <ul class="navbar">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'home' %}#about">About</a></li>
+            <li><a href="{% url 'home' %}#services">Services</a></li>
+            <li><a href="{% url 'home' %}#contact">Contact</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            
+            <!-- Dark Mode -->
+            <div class="bx bx-moon" id="darkmode"></div>
+        </ul>
+    </header>
+
+    <!-- Appointment Section -->
+    <section class="appointment-section">
+        <div class="appointment-container">
+            <h2>Schedule an Appointment</h2>
+            <form class="appointment-form" action="{% url 'appointment' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                
+                <select name="service" required>
+                    <option value="">Select Service</option>
+                    <option value="oil_change">Oil Change</option>
+                    <option value="brake_service">Brake Service</option>
+                    <option value="tire_service">Tire Service</option>
+                    <option value="battery_replacement">Battery Replacement</option>
+                    <option value="engine_diagnostic">Engine Diagnostic</option>
+                    <option value="suspension_repair">Suspension Repair</option>
+                </select>
+                
+                <select name="state" id="state" required>
+                    <option value="">Select State</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Manipur">Manipur</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Mizoram">Mizoram</option>
+                    <option value="Nagaland">Nagaland</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Tripura">Tripura</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="West Bengal">West Bengal</option>
+                </select>
+                
+                <input type="text" name="city" id="city" placeholder="Enter City" required>
+                
+                <div class="location-options">
+                    <label>
+                        <input type="radio" name="location_type" value="address" checked> Use Address
+                    </label>
+                    <label>
+                        <input type="radio" name="location_type" value="current"> Use Current Location
+                    </label>
+                </div>
+                
+                <textarea name="address" id="address" rows="3" placeholder="Enter your address"></textarea>
+                
+                <button type="submit" class="btn">Schedule Appointment</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Copyright -->
+    <div class="copyright">
+        <p>Copyright © 2024 All Rights Reserved.</p>
+    </div>
+
+    <!-- Scroll Reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        // Navbar and Dark Mode scripts (same as before)
+
+        // Scroll Reveal
+        const sr = ScrollReveal({
+            origin: 'top',
+            distance: '40px',
+            duration: 2000,
+            reset: true
+        });
+        sr.reveal(`.appointment-container`, {
+            interval: 200
+        });
+
+        // Handle location type selection
+        const addressField = document.getElementById('address');
+        const locationTypeInputs = document.querySelectorAll('input[name="location_type"]');
+        locationTypeInputs.forEach(input => {
+            input.addEventListener('change', function() {
+                if (this.value === 'address') {
+                    addressField.style.display = 'block';
+                    addressField.required = true;
+                } else {
+                    addressField.style.display = 'none';
+                    addressField.required = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

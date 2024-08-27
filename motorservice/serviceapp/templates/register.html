@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - On-Site Auto</title>
+    <!-- Box Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <!-- Link To CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+    body {
+        background-image: url('{% static "img/OIP.jpeg" %}');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .register-section {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .register-container {
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .register-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+    }
+    .register-container {
+        background-color: var(--bg-color);
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+    }
+    .register-container h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: red;
+    }
+    .register-form input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid var(--text-color);
+        border-radius: 5px;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+    }
+    .register-form .btn {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color:red;
+        color: #fff;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .register-form .btn:hover {
+        background-color:black;
+    }
+    .login-link {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .login-link a {
+        color: red;
+        text-decoration: none;
+    }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <a href="#" class="logo">On-Site Auto</a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <ul class="navbar">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'home' %}#about">About</a></li>
+            <li><a href="{% url 'home' %}#services">Services</a></li>
+            <li><a href="{% url 'home' %}#contact">Contact</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}" class="active">Register</a></li>
+            
+            <!-- Dark Mode -->
+            <div class="bx bx-moon" id="darkmode"></div>
+        </ul>
+    </header>
+
+    <!-- Register Section -->
+    <section class="register-section">
+        <div class="register-container">
+            <h2>Create an Account</h2>
+            <form class="register-form" action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password1" placeholder="Password" required>
+                <input type="password" name="password2" placeholder="Confirm Password" required>
+                <button type="submit" class="btn">Register</button>
+            </form>
+            <div class="login-link">
+                <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Copyright -->
+    <div class="copyright">
+        <p>Copyright © 2024 All Rights Reserved.</p>
+    </div>
+
+    <!-- Scroll Reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        // Navbar
+        let menuIcon = document.querySelector('#menu-icon');
+        let navbar = document.querySelector('.navbar');
+        menuIcon.onclick = () => {
+            navbar.classList.toggle('active');
+            menuIcon.classList.toggle('bx-x');
+        }
+        window.onscroll = () => {
+            navbar.classList.remove('active');
+            menuIcon.classList.remove('bx-x');
+        }
+        // Dark Mode
+        let darkmode = document.querySelector('#darkmode');
+        darkmode.onclick = () => {
+            if(darkmode.classList.contains('bx-moon')){
+                darkmode.classList.replace('bx-moon','bx-sun');
+                document.body.classList.add('active');
+            } else {
+                darkmode.classList.replace('bx-sun','bx-moon');
+                document.body.classList.remove('active');
+            }
+        }
+        // Scroll Reveal
+        const sr = ScrollReveal({
+            origin: 'top',
+            distance: '40px',
+            duration: 2000,
+            reset: true
+        });
+        sr.reveal(.register-container, {
+            interval: 200
+        });
+    </script>
+</body>
+</html>

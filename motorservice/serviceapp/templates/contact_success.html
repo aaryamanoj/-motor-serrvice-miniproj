@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Sent - On-Site Auto</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        .success-container {
+            text-align: center;
+            padding: 50px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .success-icon {
+            font-size: 64px;
+            color: green;
+            margin-bottom: 20px;
+        }
+        .success-message {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .back-home {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Include your header content here -->
+    </header>
+
+    <div class="success-container">
+        <div class="success-icon">✔</div>
+        <h1 class="success-message">Message Sent Successfully!</h1>
+        <p>Thank you for contacting On-Site Auto. We'll get back to you shortly.</p>
+        <a href="{% url 'home' %}" class="back-home">Back to Home</a>
+    </div>
+
+    <div class="copyright">
+        <p>Copyright © 2024 All Rights Reserved.</p>
+    </div>
+</body>
+</html>

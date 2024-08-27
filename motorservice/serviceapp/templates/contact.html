@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - On-Site Auto</title>
+    <!-- Box Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <!-- Link To CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+
+    body {
+        background-image: url('{% static "img/OIT (1).jpeg" %}');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .contact-section {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .contact-container {
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+        .contact-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .contact-container {
+            background-color: var(--bg-color);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        .contact-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color:red;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid var(--text-color);
+            border-radius: 5px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        .contact-form .btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: red;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .contact-form .btn:hover {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <a href="#" class="logo">On-Site Auto</a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <ul class="navbar">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'home' %}#about">About</a></li>
+            <li><a href="{% url 'home' %}#services">Services</a></li>
+            <li><a href="{% url 'contact' %}" class="active">Contact</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            
+            <!-- Dark Mode -->
+            <div class="bx bx-moon" id="darkmode"></div>
+        </ul>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <h2>Contact Us</h2>
+            <form class="contact-form" action="{% url 'contact' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Copyright -->
+    <div class="copyright">
+        <p>Copyright © 2024 All Rights Reserved.</p>
+    </div>
+
+    <!-- Scroll Reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        // Navbar and Dark Mode scripts (same as before)
+
+        // Scroll Reveal
+        const sr = ScrollReveal({
+            origin: 'top',
+            distance: '40px',
+            duration: 2000,
+            reset: true
+        });
+        sr.reveal(`.contact-container`, {
+            interval: 200
+        });
+    </script>
+</body>
+</html>

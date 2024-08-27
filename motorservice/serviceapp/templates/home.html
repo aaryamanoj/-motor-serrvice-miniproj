@@ -1,0 +1,222 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor Servicing at Home</title>
+    <!-- Box Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <!-- Link To CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <a href="#" class="logo">On-Site Auto</a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <ul class="navbar">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+
+             
+           <!-- Dark Mode -->
+           <div class="bx bx-moon" id="darkmode"></div>
+        </ul>
+    </header>
+    <!-- Home Section -->
+    <section class="home home-bg" id="home">
+        <div style="
+        background: url('/static/img/3.jpeg') no-repeat center center;
+        background-size: cover; /* or contain, or specific dimensions */
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%; /* Adjust width as needed */
+        height: 100%; /* Adjust height as needed */
+    ">
+</div>
+                <div class="home-text">
+            <h1>Expert Care</h1>
+            <h2>Expert Motor servicing at your doorstep for <br> ultimate convenience</h2>
+            <a href="{% url 'appointment' %}" class="btn">Schedule an appointment</a>
+        </div>
+    </section>
+ 
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="{% static 'img/2.jpeg' %}" alt="About Image">
+        </div>
+        <div class="about-text">
+            <span>About Us</span>
+            <h2>We Provide Convenient Service <br>at the Customer's Location</h2>
+            <p>"At On-Site Auto, we bring professional and convenient motor servicing directly to your doorstep, providing expert care for your vehicle without the hassle of visiting a workshop"</p>
+            <a href="#" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="heading">
+            <span>Services Provided</span>
+            <h2>We deliver top-notch automotive care wherever you are.</h2>
+            <h3>"Prices may vary based on vehicle make, model, and repair complexity.."</h3>
+        </div>
+        <div class="services-container">
+            <!-- Service 1 -->
+            <div class="box">
+                <div class="box-img">
+                    <img src="{% static 'img/oil.jpg' %}" alt="Oil Change">
+                </div>
+                <h2>Oil Change</h2>
+                <h3>Essential Maintenance</h3>
+                <i class='bx bx-wrench'></i>
+            </div>
+            <!-- Service 2 -->
+            <div class="box">
+                <div class="box-img">
+                    <img src="{% static 'img/brake.jpg' %}" alt="Brake Service">
+                </div>
+                <h2>Brake Repair & Replacement</h2>
+                <h3>Safety First</h3>
+                <i class='bx bx-wrench'></i>
+            </div>
+            <!-- Service 3 -->
+            <div class="box">
+                <div class="box-img">
+                    <img src="{% static 'img/tyre.jpg' %}" alt="Tire Rotation">
+                </div>
+                <h2>Tyre Services</h2>
+                <h3>Smooth Ride</h3>
+                 <i class='bx bx-wrench'></i>
+            </div>
+        </div>
+        <!--service 4-->
+        <div class="box">
+            <div class="box-img">
+                <img src="{% static 'img/battery.jpg' %}" alt="Tire Rotation">
+            </div>
+            <h2>Battery Replacement</h2>
+            <h3>Power up your ride in no time</h3>
+            <i class='bx bx-wrench'></i>
+        </div>
+    </div>
+    <!--service 5-->
+    <div class="box">
+        <div class="box-img">
+            <img src="{% static 'img/diag.jpg' %}" alt="Tire Rotation">
+        </div>
+        <h2>Engine Diagnostic & Repair</h2>
+        <h3>Pinpoint issues,restore performance</h3>
+        <i class='bx bx-wrench'></i>
+    </div>
+</div>
+<!--service 6-->
+<div class="box">
+    <div class="box-img">
+        <img src="{% static 'img/steering.jpg' %}" alt="Tire Rotation">
+    </div>
+    <h2>Suspension & steering Repair</h2>
+    <h3>Smooth rides and precise control</h3>
+    <i class='bx bx-wrench'></i>
+</div>
+</div>
+    </section>
+    <!-- Connect -->
+    <section class="connect">
+        <div class="connect-text">
+            <span>Let's Talk</span>
+            <h2>Connect now</h2>
+        </div>
+        <a href="{% url 'contact' %}" class="btn">Contact Us</a>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="contact-box">
+            <h3>On-Site Auto</h3>
+            <span>Connect With Us</span>
+            <div class="social">
+                <a href="#"><i class='bx bxl-facebook' ></i></a>
+                <a href="#"><i class='bx bxl-twitter' ></i></a>
+                <a href="#"><i class='bx bxl-instagram' ></i></a>
+            </div>
+        </div>
+        <div class="contact-box">
+            <h3>Service Links</h3>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Service</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </div>
+        <div class="contact-box">
+            <h3>Quick Links</h3>
+            <li><a href="#Contact">Contact</a></li>
+            <li><a href="#Privacy Policy">Privacy Policy</a></li>
+            <li><a href="#Disclaimer">Disclaimer</a></li>
+            <li><a href="#Terms Of Use">Terms Of Use</a></li>
+        </div>
+        <div class="contact-box address">
+            <h3>Contact</h3>
+            <i class='bx bxs-map' ><span>Hebbal,Banglore,India</span></i>
+            <i class='bx bxs-phone' ><span>+91 9526258116</span></i>
+            <i class='bx bxs-envelope' ><span>aryamanoj516@email.com</span></i>
+        </div>
+    </section>
+
+    <!-- Copyright -->
+    <div class="copyright">
+        <p> Copyright © 2024 All Rights Reserved.</p>
+    </div>
+
+
+    <!-- Scroll Reveal -->
+<script src="https://unpkg.com/scrollreveal"></script>
+<script>
+    // Navbar
+    let menuIcon = document.querySelector('#menu-icon');
+    let navbar = document.querySelector('.navbar');
+    menuIcon.onclick = () => {
+        navbar.classList.toggle('active');
+        menuIcon.classList.toggle('bx-x');
+    }
+    window.onscroll = () => {
+        navbar.classList.remove('active');
+        menuIcon.classList.remove('bx-x');
+    }
+    // Dark Mode
+    let darkmode = document.querySelector('#darkmode');
+    darkmode.onclick = () => {
+        if(darkmode.classList.contains('bx-moon')){
+            darkmode.classList.replace('bx-moon','bx-sun');
+            document.body.classList.add('active');
+        } else {
+            darkmode.classList.replace('bx-sun','bx-moon');
+            document.body.classList.remove('active');
+        }
+    }
+    // Scroll Reveal
+    const sr = ScrollReveal({
+        origin: 'top',
+        distance: '40px',
+        duration: 2000,
+        reset: true
+    });
+    sr.reveal(`.home-text, .home-img,
+                .about-img, .about-text,
+                .services-container .box,
+                .connect-text, .btn,
+                .contact-box`, {
+        interval: 200
+    });
+</script>
+</body>
+</html>
